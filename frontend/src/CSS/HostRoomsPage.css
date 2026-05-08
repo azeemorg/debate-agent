@@ -1,0 +1,320 @@
+/* ===== The Counterpoint — Host Rooms Page ===== */
+
+.host-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* Header */
+.host-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-content h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--sage-dark);
+  letter-spacing: -0.03em;
+}
+
+.header-subtitle {
+  font-size: 0.875rem;
+  color: var(--mint);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.btn-new-room {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cta);
+  color: white;
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+}
+
+.btn-new-room:hover {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* Grid */
+.host-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Room Card Override for Host Page */
+.host-page .room-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.host-page .room-card:hover {
+  border-color: rgba(168, 187, 163, 0.4);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.card-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--cream-dark);
+}
+
+.card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.room-card:hover .card-thumbnail img {
+  transform: scale(1.04);
+}
+
+.card-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-sm);
+  color: white;
+}
+
+.status-badge.draft {
+  background: var(--sage);
+}
+
+.status-badge.live {
+  background: var(--cta);
+}
+
+/* Card Content */
+.card-content {
+  padding: 16px 18px 18px;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.card-description {
+  font-size: 0.82rem;
+  color: var(--mint);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.card-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  color: var(--mint);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.meta-value {
+  font-size: 0.85rem;
+  color: var(--sage-dark);
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--cta);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+}
+
+.btn-primary:hover {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-activate {
+  width: 100%;
+  padding: 11px 18px;
+  background: var(--cta);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+}
+
+.btn-activate:hover:not(:disabled) {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.btn-activate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  animation: float 5s ease-in-out infinite;
+}
+
+.empty-state h2 {
+  font-size: 1.2rem;
+  color: var(--sage);
+}
+
+.empty-state p {
+  font-size: 0.875rem;
+  color: var(--mint);
+}
+
+/* Error Banner */
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(229, 115, 115, 0.08);
+  border: 1px solid rgba(229, 115, 115, 0.2);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.error-banner span {
+  font-size: 0.85rem;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.error-banner button {
+  background: white;
+  border: 1px solid rgba(229, 115, 115, 0.3);
+  color: var(--danger);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.error-banner button:hover {
+  background: rgba(229, 115, 115, 0.08);
+}
+
+/* Loading skeleton */
+.loading-skeleton {
+  padding: 32px 0;
+}
+
+.skeleton-header {
+  width: 200px;
+  height: 32px;
+  background: var(--cream-dark);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  animation: shimmer 1.8s ease-in-out infinite;
+  background: linear-gradient(110deg, var(--cream-dark) 30%, var(--cream) 50%, var(--cream-dark) 70%);
+  background-size: 400% 100%;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.skeleton-card {
+  height: 280px;
+  background: linear-gradient(110deg, var(--cream-dark) 30%, var(--cream) 50%, var(--cream-dark) 70%);
+  background-size: 400% 100%;
+  border-radius: var(--radius-lg);
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .host-page {
+    padding: 20px 16px 48px;
+  }
+
+  .host-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .host-grid,
+  .skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+}

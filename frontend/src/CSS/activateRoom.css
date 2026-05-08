@@ -1,0 +1,311 @@
+/* ===== The Counterpoint — Activate Room ===== */
+
+.activate-room-container {
+  min-height: calc(100dvh - var(--nav-height));
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 24px;
+  background: var(--cream);
+}
+
+.activate-room-card {
+  width: 100%;
+  max-width: 580px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-lg);
+}
+
+.activate-room-card h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--sage-dark);
+  margin-bottom: 6px;
+  letter-spacing: -0.03em;
+}
+
+.activate-room-card .description {
+  font-size: 0.875rem;
+  color: var(--mint);
+  margin-bottom: 24px;
+}
+
+/* Tabs */
+.activate-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 9px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+  border-radius: calc(var(--radius-md) - 2px);
+  color: var(--mint);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.tab-btn:hover {
+  color: var(--sage);
+}
+
+.tab-btn.active {
+  background: white;
+  color: var(--sage-dark);
+  box-shadow: var(--shadow-xs);
+  font-weight: 700;
+}
+
+/* Tab Content */
+.tab-content {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Room List */
+.rooms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.room-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-out);
+  gap: 12px;
+}
+
+.room-item:hover {
+  border-color: rgba(168, 187, 163, 0.4);
+  background: rgba(151, 168, 122, 0.04);
+}
+
+.room-item .room-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.room-item .room-info h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.room-details {
+  font-size: 0.75rem;
+  color: var(--mint);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.room-details .status-badge {
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--mint-faint);
+  color: var(--sage);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.room-topic {
+  font-size: 0.75rem;
+  color: var(--mint);
+  margin-top: 2px;
+}
+
+.room-activate-btn {
+  padding: 8px 18px;
+  background: var(--cta);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+  white-space: nowrap;
+}
+
+.room-activate-btn:hover:not(:disabled) {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.room-activate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Code Entry */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sage);
+}
+
+.room-code-input {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--sage-dark);
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--duration-fast) var(--ease-out);
+  font-weight: 500;
+}
+
+.room-code-input:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(151, 168, 122, 0.12);
+}
+
+.room-code-input::placeholder {
+  color: var(--mint);
+}
+
+.activate-btn {
+  width: 100%;
+  padding: 13px 20px;
+  background: var(--cta);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+}
+
+.activate-btn:hover:not(:disabled) {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.activate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Info Section */
+.info-section {
+  margin-top: 24px;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.info-section h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 10px;
+}
+
+.info-section ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.info-section li {
+  font-size: 0.8rem;
+  color: var(--mint);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* Messages */
+.error-message {
+  padding: 10px 14px;
+  background: rgba(229, 115, 115, 0.08);
+  border: 1px solid rgba(229, 115, 115, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.success-message {
+  padding: 10px 14px;
+  background: rgba(124, 179, 66, 0.08);
+  border: 1px solid rgba(124, 179, 66, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--success);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* Empty State */
+.empty-rooms {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.empty-rooms p {
+  font-size: 0.9rem;
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.empty-rooms small {
+  font-size: 0.8rem;
+  color: var(--mint);
+}
+
+/* Loading */
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--mint);
+  font-size: 0.9rem;
+  font-weight: 500;
+}

@@ -1,0 +1,22 @@
+# Voice Debate — Additional Python Dependencies
+# Install with: pip install -r voice_debate/requirements.txt
+
+# Core (already installed)
+fastapi
+uvicorn
+python-dotenv
+pydantic
+
+# LangChain (already installed for existing agent)
+langchain-groq
+langchain-google-genai
+langchain-tavily
+langchain
+
+# Voice Services
+websockets>=12.0        # Deepgram WebSocket connection
+aiohttp>=3.9.0          # ElevenLabs HTTP streaming
+livekit-api>=0.7.0      # LiveKit server SDK (token generation)
+
+# Utilities
+python-multipart        # File upload support

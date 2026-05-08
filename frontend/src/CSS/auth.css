@@ -1,0 +1,213 @@
+/* ===== The Counterpoint — Auth Page ===== */
+
+.auth-page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-bg-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 162, 57, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.auth-bg-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(151, 168, 122, 0.08) 0%, transparent 70%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-logo {
+  height: 48px;
+  margin-bottom: 20px;
+  filter: none;
+}
+
+.auth-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--sage-dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+}
+
+.auth-sub {
+  font-size: 0.9rem;
+  color: var(--mint);
+  font-weight: 400;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0 14px;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.auth-field:focus-within {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(151, 168, 122, 0.12);
+}
+
+.auth-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--mint);
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.auth-field:focus-within .auth-icon {
+  color: var(--sage);
+}
+
+.auth-input {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 13px 0;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--sage-dark);
+  outline: none;
+  font-weight: 500;
+}
+
+.auth-input::placeholder {
+  color: var(--mint);
+  font-weight: 400;
+}
+
+/* Error */
+.auth-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(229, 115, 115, 0.08);
+  border: 1px solid rgba(229, 115, 115, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* Submit Button */
+.auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--cta);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+  margin-top: 4px;
+}
+
+.auth-btn:hover:not(:disabled) {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.auth-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Loader spinner */
+.loader {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Toggle */
+.auth-toggle {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--mint);
+}
+
+.auth-toggle button {
+  background: none;
+  border: none;
+  color: var(--cta);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.auth-toggle button:hover {
+  color: var(--cta-hover);
+  text-decoration: underline;
+}

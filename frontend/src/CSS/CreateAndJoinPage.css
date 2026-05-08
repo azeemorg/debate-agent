@@ -1,0 +1,337 @@
+/* ===== The Counterpoint — Create & Join Page ===== */
+
+.caj-page {
+  min-height: calc(100dvh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background: var(--cream);
+}
+
+.caj-card {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+}
+
+.caj-card--wide {
+  max-width: 640px;
+}
+
+/* Header */
+.caj-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.caj-icon {
+  font-size: 2.5rem;
+  margin-bottom: 14px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.caj-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--sage-dark);
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.caj-subtitle {
+  font-size: 0.9rem;
+  color: var(--mint);
+  font-weight: 400;
+}
+
+.caj-room-id {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sage);
+  background: var(--mint-faint);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
+}
+
+/* Form */
+.caj-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.caj-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.caj-field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sage);
+  letter-spacing: 0.01em;
+}
+
+.caj-field input[type="text"],
+.caj-field input[type="number"],
+.caj-field input[type="datetime-local"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--sage-dark);
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--duration-fast) var(--ease-out);
+  font-weight: 500;
+}
+
+.caj-field input:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(151, 168, 122, 0.12);
+}
+
+.caj-field input::placeholder {
+  color: var(--mint);
+  font-weight: 400;
+}
+
+/* Stepper */
+.caj-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.stepper-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--sage);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background: var(--surface-overlay);
+  color: var(--sage-dark);
+}
+
+.stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.caj-stepper input {
+  flex: 1;
+  text-align: center;
+  border: none;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: none;
+  padding: 10px 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  font-family: var(--font-body);
+  outline: none;
+}
+
+.caj-hint {
+  font-size: 0.75rem;
+  color: var(--mint);
+  font-weight: 500;
+}
+
+/* Error */
+.caj-error {
+  padding: 10px 14px;
+  background: rgba(229, 115, 115, 0.08);
+  border: 1px solid rgba(229, 115, 115, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Actions */
+.caj-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.caj-btn-primary {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: var(--cta);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-cta);
+}
+
+.caj-btn-primary:hover:not(:disabled) {
+  background: var(--cta-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.caj-btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.caj-btn-secondary {
+  padding: 13px 20px;
+  background: white;
+  color: var(--sage);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.caj-btn-secondary:hover {
+  border-color: var(--sage);
+  background: var(--surface-overlay);
+  color: var(--sage-dark);
+}
+
+/* Role Grid */
+.caj-role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.caj-role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+.caj-role-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.caj-role-card:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.caj-role-icon {
+  font-size: 1.8rem;
+}
+
+.caj-role-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+}
+
+.caj-role-desc {
+  font-size: 0.75rem;
+  color: var(--mint);
+  line-height: 1.4;
+}
+
+/* Role variants */
+.caj-role--host {
+  border-color: rgba(151, 168, 122, 0.3);
+}
+.caj-role--host:hover {
+  border-color: var(--sage);
+  background: rgba(151, 168, 122, 0.05);
+}
+
+.caj-role--red {
+  border-color: rgba(255, 162, 57, 0.3);
+}
+.caj-role--red:hover {
+  border-color: var(--cta);
+  background: rgba(255, 162, 57, 0.05);
+}
+
+.caj-role--blue {
+  border-color: rgba(151, 168, 122, 0.3);
+}
+.caj-role--blue:hover {
+  border-color: var(--sage);
+  background: rgba(151, 168, 122, 0.05);
+}
+
+/* Joining indicator */
+.caj-joining {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  font-size: 0.875rem;
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.caj-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid var(--border);
+  border-top-color: var(--cta);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

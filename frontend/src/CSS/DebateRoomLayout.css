@@ -1,0 +1,368 @@
+/* ===================================================
+   Debate Arena — matches reference image
+   3-col: staggered teams | host+speaker | staggered teams
+   Theme: cream · sage · orange
+   ===================================================*/
+
+/* ─── Audience banner ─── */
+.audience-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: rgba(151,168,122,0.1);
+  border-bottom: 1px solid var(--pro-border);
+  color: var(--sage-dark);
+  font-size: 0.76rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ─── 3-column arena ─── */
+.debate-arena {
+  display: grid;
+  grid-template-columns: 1fr 240px 1fr;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+/* ─── Team Panel ─── */
+.team-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 0;
+}
+
+.team-panel--left  { border-right: 1px solid var(--border); background: linear-gradient(160deg, rgba(151,168,122,0.05) 0%, transparent 60%); }
+.team-panel--right { border-left:  1px solid var(--border); background: linear-gradient(200deg, rgba(255,162,57,0.05) 0%, transparent 60%); }
+
+/* ─── Team label ─── */
+.team-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  width: fit-content;
+}
+.team-label--left  { color: var(--sage-dark); background: var(--pro-bg); border: 1px solid var(--pro-border); }
+.team-label--right { color: var(--cta);       background: var(--con-bg); border: 1px solid var(--con-border); margin-left: auto; }
+
+.team-count { opacity: 0.5; margin-left: 4px; }
+
+/* ─── Staggered 2-column tile grid ─── */
+.team-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: start;
+  flex: 1;
+}
+
+.tile-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* KEY: second column is offset down to create the stagger from reference */
+.tile-col--stagger {
+  margin-top: 52px;
+}
+
+/* ─── Team empty state ─── */
+.team-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  color: var(--mint);
+  font-weight: 500;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 12px;
+  text-align: center;
+  margin: 4px;
+}
+
+/* ─── Center panel ─── */
+.center-panel {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: white;
+  overflow: hidden;
+}
+
+.center-slot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.center-slot--speaker {
+  border-top: 1px solid var(--border);
+}
+
+.center-slot__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  flex-shrink: 0;
+}
+
+.center-slot__label--host    { background: var(--cta-subtle); color: var(--cta); border-bottom: 1px solid var(--con-border); }
+.center-slot__label--speaker { background: var(--pro-bg); color: var(--sage-dark); border-bottom: 1px solid var(--pro-border); }
+
+.center-slot__body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+
+/* ─── Center waiting state ─── */
+.center-waiting {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--mint);
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Idle bouncing dots */
+.idle-dots { display: flex; gap: 5px; align-items: center; }
+.idle-dots span {
+  display: block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--mint);
+  animation: idleBounce 1.1s ease-in-out infinite;
+}
+.idle-dots span:nth-child(2) { animation-delay: 0.18s; }
+.idle-dots span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes idleBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.35; }
+  50%       { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ─── Participant Video Tile (pvt) ─── */
+.pvt {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--cream-dark, #f5f3e8);
+  border: 1.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 180ms, box-shadow 180ms;
+  cursor: default;
+}
+
+/* Small tile: square-ish for team grid */
+.pvt--small {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+/* Large tile: fills center slots */
+.pvt--large {
+  flex: 1;
+  width: 100%;
+  min-height: 100px;
+}
+
+/* Host border */
+.pvt--host {
+  border-color: var(--con-border);
+  box-shadow: 0 0 0 2px var(--cta-subtle);
+}
+
+/* Speaking glow */
+.pvt--speaking {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(151,168,122,0.25);
+}
+.pvt--host.pvt--speaking {
+  border-color: var(--cta);
+  box-shadow: 0 0 0 3px var(--cta-subtle);
+}
+
+/* ─── Video area ─── */
+.pvt__video {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: var(--cream-dark, #f0edda);
+}
+
+.pvt__feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Avatar fallback ─── */
+.pvt__avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-overlay, rgba(151,168,122,0.08));
+}
+
+.pvt__avatar span {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--mint);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Speaking ring overlay ─── */
+.pvt__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--sage);
+  animation: speakPulse 0.9s ease-in-out infinite;
+  pointer-events: none;
+}
+.pvt--host .pvt__ring { border-color: var(--cta); }
+
+@keyframes speakPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+/* ─── Badges (mute/cam off) ─── */
+.pvt__badges {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: flex;
+  gap: 3px;
+  z-index: 2;
+}
+
+.pvt__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px; height: 17px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border);
+  color: var(--mint);
+}
+
+/* ─── Host crown ─── */
+.pvt__crown {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: var(--cta);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--con-border);
+  border-radius: 5px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+/* ─── Remove button ─── */
+.pvt__remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 3;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(229,115,115,0.88);
+  border: none;
+  color: white;
+  font-size: 0.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+.pvt:hover .pvt__remove { opacity: 1; }
+
+/* ─── Nameplate ─── */
+.pvt__nameplate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 7px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.pvt__name {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pvt__speaking-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+  animation: speakPulse 0.9s ease-in-out infinite;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 860px) {
+  .debate-arena {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    overflow-y: auto;
+  }
+  .center-panel { order: -1; min-height: 280px; border: none; border-bottom: 1px solid var(--border); }
+  .team-panel--left  { border-right: none; border-bottom: 1px solid var(--border); }
+  .team-panel--right { border-left: none; }
+  .tile-col--stagger { margin-top: 36px; }
+}
+
+@media (max-width: 520px) {
+  .pvt--small { aspect-ratio: 1; }
+  .tile-col--stagger { margin-top: 24px; }
+  .debate-arena { grid-template-columns: 1fr; }
+}
